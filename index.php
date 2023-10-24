@@ -54,6 +54,16 @@ $index_query ="SHOW COLUMNS FROM newTotalUploadNomissing";
 $index_result = $conn->query($index_query);
 if($index_result->num_rows> 0){
     $index_options= mysqli_fetch_all($index_result, MYSQLI_ASSOC);
+    if(is_array($index_options)) {
+        foreach($index_options as $ii => $index_array) {
+            if(!check_index_title($index_array['Field'])) { // 한글로 시작하지 않는 경우 배열에서 삭제함 (영여, 숫자, 한글, 특수문자(_) 허용)
+                unset($index_options[$ii]);
+            }
+            if(in_array($index_array['Field'], array("연도", "분기", "차시", "권역", "기관"))) {   // 연도, 분기, 차시, 권역, 기관 배열에서 삭제함
+                unset($index_options[$ii]);
+            }
+        }
+    }
     echo "<pre>";
     print_r($index_options);
     echo "</pre>";
