@@ -17,10 +17,6 @@ function php_fn_utf8_to_array($str){
 	return $re_arr;
 }
 
-//utf8문자열을 잘라낸다.
-function php_fn_utf8_substr($str,$start,$length=NULL){
-}
-
 //utf8문자열의 길이를 구한다.
 function php_fn_utf8_strlen($str){
 	return count(php_fn_utf8_to_array($str));
