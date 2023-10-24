@@ -1,6 +1,11 @@
 <?php
 include("db.php");
 
+//utf8문자열의 길이를 구한다.
+function php_fn_utf8_strlen($str){
+	return count(php_fn_utf8_to_array($str));
+}
+
 // 지표명 체크
 function check_index_title($title = "") {
 
