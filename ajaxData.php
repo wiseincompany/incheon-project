@@ -2,7 +2,7 @@
 include_once 'db.php';
 
 if(!empty($_POST["year"])){ 
-    $query = "SELECT DISTINCT 분기 FROM new_total_upload_nomissing WHERE 연도 = ".$_POST['year']." ORDER BY 분기 ASC";
+    $query = "SELECT DISTINCT 분기 FROM new_total_upload_nomissing WHERE 연도 = '".$_POST['year']."' ORDER BY 분기 ASC";
     echo $query;
     $result = $conn->query($query);
 

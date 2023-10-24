@@ -96,6 +96,7 @@ if($index_result->num_rows> 0){
         var param = $("#"+selectid).attr("name") + "=" + $("#"+selectid).val();
 
         $.post("ajaxData.php", param, function(data) {
+            console.log(data);
             $("#"+setid).selectpicker('destroy');
             $("#"+setid+" option").remove();
             $("#"+setid).append(data);
