@@ -33,8 +33,8 @@ if($hospital != "") {
 } 
 if($search_sql != "") $search_sql = " WHERE " . $search_sql;
 // $query ="SELECT 연도, 분기, 권역, $index FROM new_total_upload_nomissing $search_sql";
-$query ="SELECT 연도, 분기, 권역, $index FROM newTYotalUploadNomissing $search_sql";
-$chart_query = "SELECT round(avg($index), 1) FROM newTYotalUploadNomissing $search_sql";
+$query ="SELECT 연도, 분기, 권역, $index FROM newTotalUploadNomissing $search_sql";
+$chart_query = "SELECT round(avg($index), 1) FROM newTotalUploadNomissing $search_sql";
 
 $result = $conn->query($query);
 $chart_result = $conn->query($chart_query);
