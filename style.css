@@ -23,7 +23,8 @@ h6 {
 
 div.title{
 	background: #2F4F4F;
-	margin: 15px 25px 15px 0px; 
+	/*margin: 15px 25px 15px 0px; */
+	margin: 0 25px 0 0px;
 	padding: 15px;
 }
 

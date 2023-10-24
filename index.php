@@ -85,17 +85,15 @@ if($index_result->num_rows> 0){
             if(!check_index_title($index_array['Field'])) { // 한글로 시작하지 않는 경우 배열에서 삭제함 (영여, 숫자, 한글, 특수문자(_) 허용)
                 unset($index_options[$ii]);
             }
-            if(in_array($index_array['Field'], array("연도", "분기", "차시", "권역", "기관"))) {   // 연도, 분기, 차시, 권역, 기관 배열에서 삭제함
+            if(in_array($index_array['Field'], array("연도", "분기", "차시", "권역", "기관"))) {   // 연도, 분기, 차시, 권역, 기관 배열에서 삭제함 ==> 삭제할 필드명은 array 에 추가
                 unset($index_options[$ii]);
             }
         }
     }
-    echo "<pre>";
-    print_r($index_options);
-    echo "</pre>";
-    // check_index_title
+    /*
     $index_options= array_slice($index_options,6);
     $index_options= array_column($index_options, '객담도말시행률');
+    */
 }
 ?>
 
