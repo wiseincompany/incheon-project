@@ -8,7 +8,7 @@ include("db.php");
 function php_fn_utf8_to_array($str){
 	$re_arr = array(); $re_icount = 0;
 	for($i=0,$m=strlen($str);$i<$m;$i++){
-		$ch = sprintf('%08b',ord($str{$i}));
+		$ch = sprintf('%08b',ord($str[$i]));
 	}
 	return $re_arr;
     /*
