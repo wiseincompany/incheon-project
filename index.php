@@ -1,7 +1,7 @@
 <?php
   error_reporting( E_ALL );
   ini_set( "display_errors", 1 );
-
+  
 include("db.php");
 
 // UTF-8 문자열 자르기
@@ -19,7 +19,6 @@ function php_fn_utf8_to_array($str){
 
 //utf8문자열을 잘라낸다.
 function php_fn_utf8_substr($str,$start,$length=NULL){
-	return implode('',array_slice(php_fn_utf8_to_array($str),$start,$length));
 }
 
 //utf8문자열의 길이를 구한다.
@@ -82,6 +81,12 @@ if($index_result->num_rows> 0){
     $index_options= mysqli_fetch_all($index_result, MYSQLI_ASSOC);
     if(is_array($index_options)) {
         foreach($index_options as $ii => $index_array) {
+            if(!check_index_title($index_array['Field'])) { // 한글로 시작하지 않는 경우 배열에서 삭제함 (영여, 숫자, 한글, 특수문자(_) 허용)
+                unset($index_options[$ii]);
+            }
+            if(in_array($index_array['Field'], array("연도", "분기", "차시", "권역", "기관"))) {   // 연도, 분기, 차시, 권역, 기관 배열에서 삭제함
+                unset($index_options[$ii]);
+            }
         }
     }
     echo "<pre>";
