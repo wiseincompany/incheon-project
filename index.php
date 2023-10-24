@@ -25,8 +25,9 @@ $index_query ="SHOW COLUMNS FROM newTotalUploadNomissing";
 $index_result = $conn->query($index_query);
 if($index_result->num_rows> 0){
     $index_options= mysqli_fetch_all($index_result, MYSQLI_ASSOC);
-    $index_options= array_slice($index_options,6);}
-    # $index_options= array_column($index_options, '객담도말시행률');}
+    $index_options= array_slice($index_options,6);
+    $index_options= array_column($index_options, '객담도말시행률');
+}
 ?>
 
 <!DOCTYPE html>
