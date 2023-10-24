@@ -9,28 +9,22 @@ function php_fn_utf8_to_array($str){
 	$re_arr = array(); $re_icount = 0;
 	for($i=0,$m=strlen($str);$i<$m;$i++){
 		$ch = sprintf('%08b',ord($str[$i]));
-	}
-	return $re_arr;
-    /*
 		if(strpos($ch,'11110')===0){$re_arr[$re_icount++]=substr($str,$i,4);$i+=3;}
 		else if(strpos($ch,'1110')===0){$re_arr[$re_icount++]=substr($str,$i,3);$i+=2;}
 		else if(strpos($ch,'110')===0){$re_arr[$re_icount++]=substr($str,$i,2); $i+=1;}
 		else if(strpos($ch,'0')===0){$re_arr[$re_icount++]=substr($str,$i,1);}
-    */
+	}
+	return $re_arr;
 }
 
 //utf8문자열을 잘라낸다.
 function php_fn_utf8_substr($str,$start,$length=NULL){
-    /*
 	return implode('',array_slice(php_fn_utf8_to_array($str),$start,$length));
-    */
 }
 
 //utf8문자열의 길이를 구한다.
 function php_fn_utf8_strlen($str){
-    /*
 	return count(php_fn_utf8_to_array($str));
-    */
 }
 
 // 지표명 체크
