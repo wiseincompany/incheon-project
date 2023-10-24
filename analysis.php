@@ -33,7 +33,7 @@ if($hospital != "") {
 } 
 if($search_sql != "") $search_sql = " WHERE " . $search_sql;
 // $query ="SELECT 연도, 분기, 권역, $index FROM new_total_upload_nomissing $search_sql";
-$query ="SELECT 연도, 분기, 권역, $index FROM newTotalUploadNomissing $search_sql";
+$query ="SELECT 연도, 분기, 권역, 기관, $index FROM newTotalUploadNomissing $search_sql";
 $chart_query = "SELECT round(avg($index), 1) FROM newTotalUploadNomissing $search_sql";
 
 $result = $conn->query($query);
@@ -76,6 +76,7 @@ google.setOnLoadCallback(function() {
 <td bgcolor="#cccccc">연도</td>
 <td bgcolor="#cccccc">분기</td>
 <td bgcolor="#cccccc">권역</td>
+<td bgcolor="#cccccc">기관(병원)</td>
 <td bgcolor="#cccccc">지표</td>
 
 <?php
@@ -86,6 +87,7 @@ while ( $rows = $result->fetch_array())
     <td> $rows[1] </td>
     <td> $rows[2] </td>
     <td> $rows[3] </td>
+    <td> $rows[4] </td>
     </tr>
     ";
 }
