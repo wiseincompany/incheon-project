@@ -7,15 +7,15 @@ include("db.php");
 // UTF-8 문자열 자르기
 function php_fn_utf8_to_array($str){
 	$re_arr = array(); $re_icount = 0;
-    /*
 	for($i=0,$m=strlen($str);$i<$m;$i++){
+	}
+	return $re_arr;
+    /*
 		$ch = sprintf('%08b',ord($str{$i}));
 		if(strpos($ch,'11110')===0){$re_arr[$re_icount++]=substr($str,$i,4);$i+=3;}
 		else if(strpos($ch,'1110')===0){$re_arr[$re_icount++]=substr($str,$i,3);$i+=2;}
 		else if(strpos($ch,'110')===0){$re_arr[$re_icount++]=substr($str,$i,2); $i+=1;}
 		else if(strpos($ch,'0')===0){$re_arr[$re_icount++]=substr($str,$i,1);}
-	}
-	return $re_arr;
     */
 }
 
