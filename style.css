@@ -1,0 +1,97 @@
+/**
+ * 공통 적용
+ */
+body {
+  background: #e0e5ec;
+}
+
+h3 {
+  position: relative;
+  text-align: left;
+  color: #FFFFFF;
+  font-size: 50px;
+  font-family: "Lato", serif;
+}
+
+h6 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  text-align: left;
+  font-size: 18px;
+  color: #FFFFFF;
+}
+
+div.title{
+	background: #2F4F4F;
+	margin: 15px 25px 15px 0px; 
+	padding: 15px;
+}
+
+/**
+ * div 왼쪽 오른쪽 적용
+ */
+
+div.upper {
+	width: 100%;
+	height: 300px;
+	margin: 15px 25px 15px 0px; 
+	padding: 15px;
+	border: 1.5px solid #4b315c;
+	
+}
+div.left {
+	width: 50%;
+	float: left;
+}
+div.right {
+	width: 50%;
+	float: right;
+}
+
+div.basic {
+	width: 100%;
+	height: 1000px;
+	margin: 15px 25px 15px 0px; 
+	padding: 15px;
+	border: 1.5px solid #4b315c;
+
+/**
+ * 버튼 공통
+ */
+button.btn {
+	border: none;
+	border-radius: 2px;
+}
+
+/**
+ * primary 버튼
+ */
+button.btn.btn-primary {
+	background-color: #002b49;
+	color: #ffffff;
+}
+
+button.btn.btn-primary:hover {
+	background-color: #004270;
+}
+
+/**
+ * 설정 취소 버튼
+ */
+button.btn.btn-warning {
+	background-color: #ffffff;
+	border: 1px solid #002b49;
+	color: #002b49;
+}
+
+button.btn.btn-warning:hover {
+	background-color: #ebf4ff;
+}
+
+/**
+ * 테이블
+ */
+tr:hover {
+	background-color: #ebf4ff;
+}
+
