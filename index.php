@@ -1,6 +1,6 @@
 <?php
 include("db.php");
-
+/*
 // UTF-8 문자열 자르기
 function php_fn_utf8_to_array($str){
 	$re_arr = array(); $re_icount = 0;
@@ -18,13 +18,14 @@ function php_fn_utf8_to_array($str){
 function php_fn_utf8_strlen($str){
 	return count(php_fn_utf8_to_array($str));
 }
-
+*/
 // 지표명 체크
 function check_index_title($title = "") {
 
 	if($title == "") return false;	// 2023-07-28 : 세로보기가 없을 경우 _1 로 들어가기 때문에 Q_번호로 지정될 수 있도록 조건 처리 ----- kky
 
-	$title_size = php_fn_utf8_strlen($title);
+	//$title_size = php_fn_utf8_strlen($title);
+    $title_size = strlen($title);
 
 	for($ii = 0; $ii < $title_size; $ii++) {
 		// 알파벳, 숫자, 한글, 특수문자(_) 만 입력 가능
