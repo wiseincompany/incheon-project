@@ -45,12 +45,13 @@ $options = array(
 	'title' => "지표입니다",
 	'width' => 400, 'height' => 500
 );
-
+echo "<!--";
 echo "<br>";
 echo $query."<br>";
 echo "<br>";
 echo $chart_query."<br>";
 echo $chart_row[0]."<br>";
+echo "-->";
 ?>
 
 <hr>
