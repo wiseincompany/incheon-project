@@ -1,6 +1,35 @@
 <?php
 include("db.php");
 
+// 지표명 체크
+function check_index_title($title = "") {
+
+	if($title == "") return false;	// 2023-07-28 : 세로보기가 없을 경우 _1 로 들어가기 때문에 Q_번호로 지정될 수 있도록 조건 처리 ----- kky
+
+	$title_size = php_fn_utf8_strlen($title);
+
+	for($ii = 0; $ii < $title_size; $ii++) {
+		// 알파벳, 숫자, 한글, 특수문자(_) 만 입력 가능
+		//$pattern = "/[A-Za-z0-9\xA1-\xFE_]/";
+		$pattern = "/[0-9a-zA-Z\xA1-\xFE\_]/";
+
+		// 첫글자는 한글만 입력 가능
+		if($ii == 0) {
+			$pattern = "/[\xA1-\xFE]+/";
+		}
+
+		$str = php_fn_utf8_substr($title,$ii,1);
+
+		if(!preg_match($pattern, $str)) {
+			//echo $str."<br>";
+			return false;
+		}
+	}
+
+	return true;
+
+}
+
 $year_query ="SELECT DISTINCT 연도 FROM newTotalUploadNomissing";
 $year_result = $conn->query($year_query);
 if($year_result->num_rows> 0){
@@ -25,6 +54,10 @@ $index_query ="SHOW COLUMNS FROM newTotalUploadNomissing";
 $index_result = $conn->query($index_query);
 if($index_result->num_rows> 0){
     $index_options= mysqli_fetch_all($index_result, MYSQLI_ASSOC);
+    echo "<pre>";
+    print_r($index_options);
+    echo "</pre>";
+    // check_index_title
     $index_options= array_slice($index_options,6);
     $index_options= array_column($index_options, '객담도말시행률');
 }
