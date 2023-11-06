@@ -36,8 +36,6 @@ if($search_sql != "") $search_sql = " WHERE " . $search_sql;
 $query ="SELECT 연도, 분기, 권역, 기관, $index FROM newTotalUploadNomissing $search_sql";
 $chart_query = "SELECT round(avg($index), 1) FROM newTotalUploadNomissing $search_sql";
 
-echo $query;
-
 $result = $conn->query($query);
 $chart_result = $conn->query($chart_query);
 $chart_row = $chart_result->fetch_array();
@@ -54,6 +52,39 @@ echo "<br>";
 echo $chart_query."<br>";
 echo $chart_row[0]."<br>";
 echo "-->";
+
+$analysis_type = "";
+
+// 권역선택
+if($region != false && $hospital == false) {
+    $analysis_type = "region";
+}
+
+// 지역선택
+if($hospital != false) {
+    $analysis_type = "hospital";
+}
+
+// 전체 값
+
+// chart data
+$chart_label_array = array();
+if($analysis_type == "region") {
+    $chart_label_array[] = "전체";
+    if(is_array($region)) $chart_label_array = array_merge($chart_label_array, $region);
+}
+if($analysis_type == "hospital") {
+    $chart_label_array[] = $region;
+    if(is_array($hospital)) $chart_label_array = array_merge($chart_label_array, $hospital);
+}
+
+$chart_data = "['Year']";
+if(is_array($chart_label_array) && count($chart_label_array) > 0) {
+    foreach($chart_label_array as $ii => $val) {
+        if($chart_data != "") $chart_data .= ",";
+        $chart_data .= "['".$val."','1000']";
+    }
+}
 ?>
 
 <hr>
@@ -78,11 +109,7 @@ google.setOnLoadCallback(function() {
 
     function drawChart() {
         var data = google.visualization.arrayToDataTable([
-            ['Year', 'Sales', 'Expenses', 'Profit'],
-            ['2014', 1000, 400, 200],
-            ['2015', 1170, 460, 250],
-            ['2016', 660, 1120, 300],
-            ['2017', 1030, 540, 350]
+            <?=$chart_data?>
         ]);
 
         var options = {
