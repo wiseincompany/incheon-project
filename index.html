@@ -87,7 +87,7 @@ if($index_result->num_rows> 0){
                     $("#index").focus();
                     return false;
                 }
-            console.log($("#searchfrm").serialize());
+                console.log($("#searchfrm").serialize());
 
                 $.post("analysis.php",$("#searchfrm").serialize(), function(data) {
                     $("#basic").html(data);

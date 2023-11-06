@@ -55,6 +55,7 @@ echo "-->";
 ?>
 
 <hr>
+<?php/*
 <script src="//www.google.com/jsapi"></script>
 
 <script>
@@ -66,6 +67,34 @@ google.setOnLoadCallback(function() {
   chart.draw(google.visualization.arrayToDataTable(data), options);
 });
 </script> 
+*/?>
+
+<script type="text/javascript" src="//www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    google.charts.load('current', {'packages':['bar']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+        ['Year', 'Sales', 'Expenses', 'Profit'],
+        ['2014', 1000, 400, 200],
+        ['2015', 1170, 460, 250],
+        ['2016', 660, 1120, 300],
+        ['2017', 1030, 540, 350]
+    ]);
+
+    var options = {
+        chart: {
+        title: 'Company Performance',
+        subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+        }
+    };
+
+    var chart = new google.charts.Bar(document.getElementById('chart_div'));
+
+    chart.draw(data, google.charts.Bar.convertOptions(options));
+    }
+</script>
 
 <div id="chart_div"></div> 
 

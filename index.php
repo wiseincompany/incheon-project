@@ -151,7 +151,7 @@ if($index_result->num_rows> 0){
                     $("#index").focus();
                     return false;
                 }
-            console.log($("#searchfrm").serialize());
+                //console.log($("#searchfrm").serialize());
 
                 $.post("analysis.php",$("#searchfrm").serialize(), function(data) {
                     $("#basic").html(data);
@@ -163,7 +163,6 @@ if($index_result->num_rows> 0){
         var param = $("#"+selectid).attr("name") + "=" + $("#"+selectid).val();
 
         $.post("ajaxData.php", param, function(data) {
-            console.log(data);
             $("#"+setid).selectpicker('destroy');
             $("#"+setid+" option").remove();
             $("#"+setid).append(data);
