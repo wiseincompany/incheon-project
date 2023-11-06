@@ -57,7 +57,7 @@ echo "-->";
 ?>
 
 <hr>
-<?php/*
+<?/*
 <script src="//www.google.com/jsapi"></script>
 
 <script>
