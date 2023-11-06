@@ -36,6 +36,8 @@ if($search_sql != "") $search_sql = " WHERE " . $search_sql;
 $query ="SELECT 연도, 분기, 권역, 기관, $index FROM newTotalUploadNomissing $search_sql";
 $chart_query = "SELECT round(avg($index), 1) FROM newTotalUploadNomissing $search_sql";
 
+echo $query;
+
 $result = $conn->query($query);
 $chart_result = $conn->query($chart_query);
 $chart_row = $chart_result->fetch_array();
@@ -75,24 +77,24 @@ google.setOnLoadCallback(function() {
     google.charts.setOnLoadCallback(drawChart);
 
     function drawChart() {
-    var data = google.visualization.arrayToDataTable([
-        ['Year', 'Sales', 'Expenses', 'Profit'],
-        ['2014', 1000, 400, 200],
-        ['2015', 1170, 460, 250],
-        ['2016', 660, 1120, 300],
-        ['2017', 1030, 540, 350]
-    ]);
+        var data = google.visualization.arrayToDataTable([
+            ['Year', 'Sales', 'Expenses', 'Profit'],
+            ['2014', 1000, 400, 200],
+            ['2015', 1170, 460, 250],
+            ['2016', 660, 1120, 300],
+            ['2017', 1030, 540, 350]
+        ]);
 
-    var options = {
-        chart: {
-        title: 'Company Performance',
-        subtitle: 'Sales, Expenses, and Profit: 2014-2017',
-        }
-    };
+        var options = {
+            chart: {
+            title: 'Company Performance',
+            subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+            }
+        };
 
-    var chart = new google.charts.Bar(document.getElementById('chart_div'));
+        var chart = new google.charts.Bar(document.getElementById('chart_div'));
 
-    chart.draw(data, google.charts.Bar.convertOptions(options));
+        chart.draw(data, google.charts.Bar.convertOptions(options));
     }
 </script>
 
