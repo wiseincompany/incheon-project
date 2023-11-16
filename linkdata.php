@@ -11,8 +11,8 @@ echo "<pre>";
 print_r($_REQUEST);
 echo "</pre>";
 
-$uid = isset($_REQUEST[uid]) ? decryptAES128($_REQUEST[uid]) : "";
-$uname = isset($_REQUEST[uname]) ? decryptAES128($_REQUEST[uname]) : "";
+$uid = isset($_REQUEST['uid']) ? decryptAES128($_REQUEST['uid']) : "";
+$uname = isset($_REQUEST['uname']) ? decryptAES128($_REQUEST['uname']) : "";
 
 if($uid == "" || $uname == "") {
     error("접속 정보가 누락되었습니다.");
