@@ -1,11 +1,20 @@
 <?php
 include "common.php";
 
-$uid = isset($_REQUEST['uid']) ? $_REQUEST['uid'] : "";
-$uname = isset($_REQUEST['uname']) ? $_REQUEST['uname'] : "";
+define('KEY_PASSWD', "WISEINCOMP".date('his'));
+define('KEY_IV', "WISEINCOMP".date('his'));
+
+$uid = isset($_REQUEST['uid']) ? decryptAES128($_REQUEST['uid']) : "";
+$uname = isset($_REQUEST['uname']) ? decryptAES128($_REQUEST['uname']) : "";
 
 if($uid == "" || $uname == "") {
-    echo "<script>alert('접속 정보가 누락되었습니다.');/*history.go(-1);*/</script>";
+    error("접속 정보가 누락되었습니다.");
+    //exit;
+}
+
+$enc_id = encryptAES128($uid);
+if($_REQUEST['uid'] != $enc_id) {
+    error("접속 정보가 일치하지 않습니다.");
     //exit;
 }
 

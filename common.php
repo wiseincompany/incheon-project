@@ -22,4 +22,6 @@ else session_cache_limiter('private, must-revalidate');
 @header("Content-Type: text/html; charset=UTF-8");
 
 include "db.php"; // DB Connect
+include "lib.php"; // Library
+
 ?>
