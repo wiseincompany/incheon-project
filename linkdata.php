@@ -7,6 +7,10 @@ include "common.php";
 echo "test => ".encryptAES128("test")."<br>";
 echo "name => ".encryptAES128("테스트")."<br>";
 
+echo "<pre>";
+print_r($_REQUEST);
+echo "</pre>";
+
 $uid = isset($_REQUEST['uid']) ? decryptAES128($_REQUEST['uid']) : "";
 $uname = isset($_REQUEST['uname']) ? decryptAES128($_REQUEST['uname']) : "";
 
