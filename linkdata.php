@@ -21,8 +21,7 @@ if($uid == "" || $uname == "") {
 
 $enc_id = encryptAES128($uid);
 if($_REQUEST['uid'] != $enc_id) {
-    error("접속 정보가 일치하지 않습니다.");
-    
+    error("접속 정보가 일치하지 않습니다.");    
     //exit;
 }
 
