@@ -1,6 +1,9 @@
 <?php
 include "common.php";
 
+echo "test => ".encryptAES128("test")."<br>";
+echo "name => ".encryptAES128("테스트")."<br>";
+
 define('KEY_PASSWD', "WISEINCOMP".date('his'));
 define('KEY_IV', "WISEINCOMP".date('his'));
 
