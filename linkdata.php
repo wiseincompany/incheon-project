@@ -1,6 +1,9 @@
 <?php
 include "common.php";
 
+$uid = $_REQUEST['uid'];
+$uname = $_REQUEST['uname'];
+
 if($uid == "" || $uname == "") {
     echo "<script>alert('접속 정보가 누락되었습니다.');/*history.go(-1);*/</script>";
     //exit;
