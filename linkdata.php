@@ -1,11 +1,11 @@
 <?php
+define('KEY_PASSWD', "WISEINCOMP".date('his'));
+define('KEY_IV', "WISEINCOMP".date('his'));
+
 include "common.php";
 
 echo "test => ".encryptAES128("test")."<br>";
 echo "name => ".encryptAES128("테스트")."<br>";
-
-define('KEY_PASSWD', "WISEINCOMP".date('his'));
-define('KEY_IV', "WISEINCOMP".date('his'));
 
 $uid = isset($_REQUEST['uid']) ? decryptAES128($_REQUEST['uid']) : "";
 $uname = isset($_REQUEST['uname']) ? decryptAES128($_REQUEST['uname']) : "";
