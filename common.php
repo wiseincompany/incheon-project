@@ -7,7 +7,7 @@ ini_set( "display_errors", 1 );
 @ini_set("session.use_trans_sid", 0);	// PHPSESSID를 자동으로 넘기지 않음	=> session.auto_start = 0 으로 설정 / PHP 5 이상 버전부터 session.use_trans_sid 설정을 ini_set으로 바꿀 수 없음
 @ini_set("url_rewriter.tags","");			// 링크에 PHPSESSID가 따라다니는것을 무력화함
 
-if($SESSION_CACHE_LIMITER) session_cache_limiter($SESSION_CACHE_LIMITER);
+if($_SERVER['SESSION_CACHE_LIMITER']) session_cache_limiter($_SERVER['SESSION_CACHE_LIMITER']);
 else session_cache_limiter('private, must-revalidate');
 
 @ini_set("session.cache_expire", 1440);			// 세션 캐쉬 보관시간 (분)
