@@ -1,5 +1,5 @@
 <?php
-error_reporting( E_ALL );
+error_reporting( E_ALL & ~E_WARNING );
 ini_set( "display_errors", 1 );
 
 @header('P3P: CP="NOI CURa ADMa DEVa TAIa OUR DELa BUS IND PHY ONL UNI COM NAV INT DEM PRE"');
