@@ -11,6 +11,8 @@ echo "<pre>";
 print_r($_REQUEST);
 echo "</pre>";
 
+echo "dec id => ".decryptAES128($_REQUEST['uid'])."<br>";
+
 $uid = isset($_REQUEST['uid']) ? decryptAES128($_REQUEST['uid']) : "";
 $uname = isset($_REQUEST['uname']) ? decryptAES128($_REQUEST['uname']) : "";
 
