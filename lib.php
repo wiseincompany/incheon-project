@@ -22,6 +22,9 @@ function encryptAES128($string){
 
 //AES 128 복호화
 function decryptAES128($string){
+	echo "KEY_PASSWD => " .KEY_PASSWD."<br>";
+	echo "KEY_IV => " . KEY_IV."<br>";
+
 	echo "str => " . $string."<br>";
 	$base64Decoded = base64_decode($string);
 	echo "base => " . $base64Decoded."<br>";
