@@ -15,7 +15,7 @@ function error($msg, $go_url=""){
 
 //AES 128 암호화
 function encryptAES128($string){
-    $encrypted = openssl_encrypt($string,"aes-128-cbc", KEY_PASSWD, true, KEY_IV);
+    $encrypted = openssl_encrypt($string,"aes-128-cbc", KEY_PASSWD, OPENSSL_RAW_DATA, KEY_IV);
 	$base64Encoded = base64_encode($encrypted);
 	return $base64Encoded;
 }
@@ -25,7 +25,7 @@ function decryptAES128($string){
 	echo "str => " . $string."<br>";
 	$base64Decoded = base64_decode($string);
 	echo "base => " . $base64Decoded."<br>";
-    $decrypted = openssl_decrypt($base64Decoded, "aes-128-cbc", KEY_PASSWD, true, KEY_IV);
+    $decrypted = openssl_decrypt($base64Decoded, "aes-128-cbc", KEY_PASSWD, OPENSSL_RAW_DATA, KEY_IV);
 	echo "dec => " . $decrypted."<br>";
 	return $decrypted;
 }
