@@ -112,11 +112,15 @@ if($index_result->num_rows> 0){
             if(selectid == "year") param = "year=" + $("#"+selectid).val();
             else param = $("#"+selectid).attr("name") + "=" + $("#"+selectid).val();
 
+            console.log(param);
+            
             $.post("ajaxData.php", param, function(data) {
                 $("#"+setid).selectpicker('destroy');
                 $("#"+setid+" option").remove();
                 $("#"+setid).append(data);
                 $("#"+setid).selectpicker("refresh");
+
+                console.log(data);
             });
 	    }
     </script>
