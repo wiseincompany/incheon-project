@@ -90,7 +90,7 @@ if($index_result->num_rows> 0){
             });
             $("select[name='region[]']").on("change", function() {
 
-                console.log("checked len => " + $(this).prop("checked").length);
+                console.log("checked len => " + $("select[name='region[]']:checked").length);
 
                 if($(this).prop("checked").length == 1) {
                     setOption($(this).attr("id"), "hospital");
