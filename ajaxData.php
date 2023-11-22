@@ -18,7 +18,6 @@ if(!empty($_POST["year"])){
 
 if(!empty($_POST["region"])){ 
     if(is_array($_POST['region'])) {
-        $query = "SELECT DISTINCT 기관 FROM newTotalUploadNomissing WHERE 권역 = '".$_POST['region']."' ORDER BY 기관 ASC";
         $region = "";
         foreach($_POST['region'] as $ii => $value) {
             if($region != "") $region .= ",";
@@ -28,7 +27,6 @@ if(!empty($_POST["region"])){
         $region = "'".$_POST['region']."'";
     }
     $query = "SELECT DISTINCT 기관 FROM newTotalUploadNomissing WHERE 권역 IN (".$region.") ORDER BY 기관 ASC";
-    echo $query;
     $result = $conn->query($query);
 
     // Generate HTML of state options list 
