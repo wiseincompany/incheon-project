@@ -96,6 +96,7 @@ if($index_result->num_rows> 0){
                 } else {
                     $("#hospital").attr("selected", false);
                     $("#hospital").attr("disabled", true);
+                    $("#hospital").selectpicker('destroy');
                     $("#hospital option").remove();
                 }
 
