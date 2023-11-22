@@ -40,11 +40,6 @@ if($index_result->num_rows> 0){
     $index_options= array_column($index_options, '객담도말시행률');
     */
 }
-
-echo "<pre>";
-print_r($year_options);
-print_r($region_options);
-echo "</pre>";
 ?>
 <!DOCTYPE html>
 <html lang="en">
