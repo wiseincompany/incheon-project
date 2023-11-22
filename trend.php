@@ -148,11 +148,6 @@ if($index_result->num_rows> 0){
                         <?php } ?>
                     </select> 
                     연도 
-                    <select id="equarter" name="equarter" class="selectpicker" data-width="40%" title="분기 선택" aria-label="end quarter">
-                        <?php foreach ($quarter_options as $quarter_options) { ?>
-                        <option><?php echo $quarter_options['분기']; ?> </option>
-                        <?php } ?>
-                    </select>
                     분기
                     <p></p> 
                 </div>
