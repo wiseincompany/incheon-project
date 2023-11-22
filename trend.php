@@ -124,6 +124,7 @@ if($index_result->num_rows> 0){
                 $("#"+setid+" option").remove();
                 $("#"+setid).append(data);
                 $("#"+setid).selectpicker("refresh");
+                console.log(data);
             });
 	    }
     </script>
