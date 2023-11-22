@@ -98,6 +98,7 @@ if($index_result->num_rows> 0){
                     $("#hospital").attr("disabled", true);
                     $("#hospital").selectpicker('destroy');
                     $("#hospital option").remove();
+                    $("#hospital").selectpicker("refresh");
                 }
 
             });
