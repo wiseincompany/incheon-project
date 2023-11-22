@@ -126,15 +126,27 @@ if($index_result->num_rows> 0){
                 <div> 
                     <p> ▶ <strong>시작 분기</strong>를 선택해주세요 </p>
                     <select id="syear" name="syear" class="selectpicker" data-width="40%" title="연도 선택" aria-label="start year">
-                        <?php foreach ($year_options as $year_options) { ?>
-                        <option><?php echo $year_options['연도']; ?> </option>
-                        <?php } ?>
+                        <?php
+                        if(is_array($year_options)) {
+                            foreach($year_options as $ii => $value) {
+                        ?>
+                        <option><?=$value?></option>
+                        <?php
+                            }
+                        }
+                        ?>
                     </select> 
                     연도 
                     <select id="squarter" name="squarter" class="selectpicker" data-width="40%" title="분기 선택" aria-label="start quarter">
-                        <?php foreach ($quarter_options as $quarter_options) { ?>
-                        <option><?php echo $quarter_options['분기']; ?> </option>
-                        <?php } ?>
+                        <?php
+                        if(is_array($quarter_options)) {
+                            foreach($quarter_options as $ii => $value) {
+                        ?>
+                        <option><?=$value?></option>
+                        <?php
+                            }
+                        }
+                        ?>
                     </select>
                     분기
                     <p></p> 
@@ -143,11 +155,28 @@ if($index_result->num_rows> 0){
                 <div> 
                     <p> ▶ <strong>종료 분기</strong>를 선택해주세요 </p>
                     <select id="eyear" name="eyear" class="selectpicker" data-width="40%" title="연도 선택" aria-label="end year">
-                        <?php foreach ($year_options as $year_options) { ?>
-                        <option><?php echo $year_options['연도']; ?> </option>
-                        <?php } ?>
+                        <?php
+                        if(is_array($year_options)) {
+                            foreach($year_options as $ii => $value) {
+                        ?>
+                        <option><?=$value?></option>
+                        <?php
+                            }
+                        }
+                        ?>
                     </select> 
                     연도 
+                    <select id="equarter" name="equarter" class="selectpicker" data-width="40%" title="분기 선택" aria-label="end quarter">
+                        <?php
+                        if(is_array($quarter_options)) {
+                            foreach($quarter_options as $ii => $value) {
+                        ?>
+                        <option><?=$value?></option>
+                        <?php
+                            }
+                        }
+                        ?>
+                    </select>
                     분기
                     <p></p> 
                 </div>
