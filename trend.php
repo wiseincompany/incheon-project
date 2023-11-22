@@ -96,6 +96,7 @@ if($index_result->num_rows> 0){
                 } else {
                     $("#hospital").prop("checked", false);
                     $("#hospital").attr("disabled", true);
+                    $("#"+setid+" option").remove();
                 }
 
             });
