@@ -115,6 +115,8 @@ if($index_result->num_rows> 0){
             $("#"+setid).append(data);
             $("#"+setid).selectpicker("refresh");
 
+            console.log("id => " + setid);
+            console.log(data);
         });
 	  }
     </script>
