@@ -133,9 +133,9 @@ echo "</pre>";
                     <select id="syear" name="syear" class="selectpicker" data-width="40%" title="연도 선택" aria-label="start year">
                         <?php
                         if(is_array($year_options)) {
-                            foreach($year_options as $ii => $value) {
+                            foreach($year_options as $ii => $array) {
                         ?>
-                        <option><?=$value?></option>
+                        <option><?=$array['연도']?></option>
                         <?php
                             }
                         }
@@ -145,9 +145,9 @@ echo "</pre>";
                     <select id="squarter" name="squarter" class="selectpicker" data-width="40%" title="분기 선택" aria-label="start quarter">
                         <?php
                         if(is_array($quarter_options)) {
-                            foreach($quarter_options as $ii => $value) {
+                            foreach($quarter_options as $ii => $array) {
                         ?>
-                        <option><?=$value?></option>
+                        <option><?=$array['분기']?></option>
                         <?php
                             }
                         }
@@ -162,9 +162,9 @@ echo "</pre>";
                     <select id="eyear" name="eyear" class="selectpicker" data-width="40%" title="연도 선택" aria-label="end year">
                         <?php
                         if(is_array($year_options)) {
-                            foreach($year_options as $ii => $value) {
+                            foreach($year_options as $ii => $array) {
                         ?>
-                        <option><?=$value?></option>
+                        <option><?=$array['연도']?></option>
                         <?php
                             }
                         }
@@ -174,9 +174,9 @@ echo "</pre>";
                     <select id="equarter" name="equarter" class="selectpicker" data-width="40%" title="분기 선택" aria-label="end quarter">
                         <?php
                         if(is_array($quarter_options)) {
-                            foreach($quarter_options as $ii => $value) {
+                            foreach($quarter_options as $ii => $array) {
                         ?>
-                        <option><?=$value?></option>
+                        <option><?=$array['분기']?></option>
                         <?php
                             }
                         }
