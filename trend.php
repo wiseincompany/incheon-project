@@ -107,20 +107,16 @@ if($index_result->num_rows> 0){
         });
 
         function setOption(selectid, setid) {
-        var param = $("#"+selectid).attr("name") + "=" + $("#"+selectid).val();
+            if(selectid == "syear" || selectid == "eyear") selectid = year;
+            var param = $("#"+selectid).attr("name") + "=" + $("#"+selectid).val();
 
-        console.log(param);
-
-        $.post("ajaxData.php", param, function(data) {
-            $("#"+setid).selectpicker('destroy');
-            $("#"+setid+" option").remove();
-            $("#"+setid).append(data);
-            $("#"+setid).selectpicker("refresh");
-
-            console.log("id => " + setid);
-            console.log(data);
-        });
-	  }
+            $.post("ajaxData.php", param, function(data) {
+                $("#"+setid).selectpicker('destroy');
+                $("#"+setid+" option").remove();
+                $("#"+setid).append(data);
+                $("#"+setid).selectpicker("refresh");
+            });
+	    }
     </script>
 
 </head>
