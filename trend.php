@@ -127,7 +127,6 @@ if($index_result->num_rows> 0){
                 $("#"+setid+" option").remove();
                 $("#"+setid).append(data);
                 $("#"+setid).selectpicker("refresh");
-                console.log(data);
             });
 	    }
     </script>
@@ -214,7 +213,7 @@ if($index_result->num_rows> 0){
                     </select> <p></p>  
                 </div>
 
-                <div> <p> ▶  <strong>기관(병원)</strong>을 선택해주세요 </p>
+                <div> <p> ▶  <strong>기관(병원)</strong>을 선택해주세요(권역 복수 선택 시 선택 불가)</p>
                     <select id="hospital" name="hospital[]" class="selectpicker" data-width="70%" multiple title="복수 선택 가능" data-actions-box="true" aria-label="Default select example">
                         <option value="">권역을 먼저 선택해주세요</option>
                     </select> <p></p> 
@@ -223,8 +222,11 @@ if($index_result->num_rows> 0){
 
             <div> <p> ▶ 검색하려는 <strong>지표</strong>를 선택해주세요 </p>
                 <select id="index" name="index" class="selectpicker" data-width="50%" title="지표" aria-label="Default select example">
-                    <?php foreach ($index_options as $index_options) {?>
-                    <option><?php echo $index_options['Field']; ?> </option>
+                    <?php 
+                    foreach ($index_options as $index_options) {
+                        $sel = ($index_options['Field'] == $sindex) ? "selected" : "";
+                    ?>
+                    <option <?=$sel?>><?php echo $index_options['Field']; ?> </option>
                     <?php } ?>
 
                 </select> <p></p> 
