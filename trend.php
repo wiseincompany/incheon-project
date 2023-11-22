@@ -73,12 +73,6 @@ if($index_result->num_rows> 0){
 
     <script>
         $(document).ready(function(){
-            $.ajax({
-                url: "trend_result.php",
-                type: "post",
-            }).done(function(data) {
-                $('#result').html(data);
-            });
 
             $('.selectpicker').selectpicker();
 
@@ -97,7 +91,7 @@ if($index_result->num_rows> 0){
                 }
                 //console.log($("#searchfrm").serialize());
 
-                $.post("trend_result.php",$("#searchfrm").serialize(), function(data) {
+                $.post("trendResult.php",$("#searchfrm").serialize(), function(data) {
                     $("#result").html(data);
                 });
             });
