@@ -73,11 +73,20 @@ if($index_result->num_rows> 0){
 
     <script>
         $(document).ready(function(){
+            $.ajax({
+                url: "basic.php",
+                type: "post",
+            }).done(function(data) {
+                $('#result').html(data);
+            });
 
             $('.selectpicker').selectpicker();
 
             $("select[name='syear']").on("change", function() {
                 setOption($(this).attr("id"), "squarter");
+            });
+            $("select[name='eyear']").on("change", function() {
+                setOption($(this).attr("id"), "equarter");
             });
             $("select[name='region']").on("change", function() {
                 setOption($(this).attr("id"), "hospital");
