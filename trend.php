@@ -107,9 +107,8 @@ if($index_result->num_rows> 0){
         });
 
         function setOption(selectid, setid) {
-            if(selectid == "syear" || selectid == "eyear") selectid = "year";
             var param = "";
-            if(selectid == "year") param = "year=" + $("#"+selectid).val();
+            if(selectid == "syear" || selectid == "eyear") param = "year=" + $("#"+selectid).val();
             else param = $("#"+selectid).attr("name") + "=" + $("#"+selectid).val();
 
             console.log(param);
