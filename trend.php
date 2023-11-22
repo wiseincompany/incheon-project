@@ -94,7 +94,7 @@ if($index_result->num_rows> 0){
                     setOption($(this).attr("id"), "hospital");
                     $("#hospital").attr("disabled", false);
                 } else {
-                    $("#hospital").prop("checked", false);
+                    $("#hospital").attr("selected", false);
                     $("#hospital").attr("disabled", true);
                     $("#hospital option").remove();
                 }
