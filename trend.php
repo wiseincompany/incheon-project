@@ -108,7 +108,9 @@ if($index_result->num_rows> 0){
 
         function setOption(selectid, setid) {
             if(selectid == "syear" || selectid == "eyear") selectid = "year";
-            var param = $("#"+selectid).attr("name") + "=" + $("#"+selectid).val();
+            var param = "";
+            if(selectid == "year") param = "year=" + $("#"+selectid).val();
+            else param = $("#"+selectid).attr("name") + "=" + $("#"+selectid).val();
 
             $.post("ajaxData.php", param, function(data) {
                 $("#"+setid).selectpicker('destroy');
