@@ -90,10 +90,7 @@ if($index_result->num_rows> 0){
             });
             $("select[name='region[]']").on("change", function() {
 
-                console.log("checked value => " + $("select[name='region[]']").val());
-                console.log("checked len => " + $(this).find("option:selected").length);
-
-                if($(this).prop("checked").length == 1) {
+                if($(this).find("option:selected").length == 1) {
                     setOption($(this).attr("id"), "hospital");
                     $("#hospital").attr("disabled", false);
                 } else {
@@ -101,7 +98,6 @@ if($index_result->num_rows> 0){
                     $("#hospital").attr("disabled", true);
                 }
 
-                
             });
 
             $("#btn_analysis").on("click", function() {
