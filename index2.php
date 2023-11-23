@@ -164,7 +164,12 @@ if($index_result->num_rows> 0){
                 }
                 //console.log($("#searchfrm").serialize());
 
-                $.post("analysisResult.php",$("#searchfrm").serialize(), function(data) {
+                var act_page = "analysisResult.php";
+                if($(this).find("option:selected").length > 1) {
+                    act_page = "analysisMultiResult.php";
+                }
+
+                $.post(act_page,$("#searchfrm").serialize(), function(data) {
                     $("#basic").html(data);
                 });
             });
