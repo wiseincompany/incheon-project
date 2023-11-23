@@ -37,7 +37,7 @@ if($hospital != "") {
 if($search_sql != "") $search_sql = " WHERE " . $search_sql;
 // $query ="SELECT 연도, 분기, 권역, $index FROM new_total_upload_nomissing $search_sql";
 $query ="SELECT 연도, 분기, 권역, 기관, $index FROM newTotalUploadNomissing $search_sql";
-echo $query."<br>";
+//echo $query."<br>";
 $result = $conn->query($query);
 ?>
 
@@ -54,7 +54,7 @@ $result = $conn->query($query);
       data.addColumn('number', '성심의료재단강동성심병원');
 
       data.addRows([
-        [0, 100, 81.8, 71.4],    [1, 100, 100, 80],   [2, 40, 75, 0]
+        ['2022년 2분기', 100, 81.8, 71.4],    ['2022년 2분기', 100, 100, 80],   ['2022년 2분기', 40, 75, 0]
       ]);
 
       var options = {
