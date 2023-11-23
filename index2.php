@@ -231,7 +231,7 @@ if($index_result->num_rows> 0){
             </div>
 
             <div> <p> ▶ 검색하려는 <strong>지표</strong>를 선택해주세요 </p>
-                <select id="index" name="index" class="selectpicker" data-width="50%" title="지표" aria-label="Default select example">
+                <select id="index" name="index[]" class="selectpicker" data-width="50%" multiple title="지표" data-actions-box="true" aria-label="Default select example">
                     <?php foreach ($index_options as $index_options) {?>
                     <option><?php echo $index_options['Field']; ?> </option>
                     <?php } ?>
