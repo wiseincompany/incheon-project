@@ -59,10 +59,10 @@ $result = $conn->query($query);
 
       var options = {
         hAxis: {
-          title: 'Time'
+          title: ''
         },
         vAxis: {
-          title: 'Popularity'
+          title: ''
         },
         series: {
           1: {curveType: 'function'}
