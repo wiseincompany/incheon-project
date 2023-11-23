@@ -47,10 +47,10 @@ $result = $conn->query($query);
     function drawChart() {
       var data = google.visualization.arrayToDataTable([
         ["Element", "Density", { role: "style" } ],
-        ["Copper", 8.94, "#b87333"],
-        ["Silver", 10.49, "silver"],
-        ["Gold", 19.30, "gold"],
-        ["Platinum", 21.45, "color: #e5e4e2"]
+        ["전국", 98.5, "silver"],
+        ["강원권역", 95.6, "#007bff"],
+        ["경북권역", 96.8, "#007bff"],
+        ["광주권", 93.4, "#007bff"],
       ]);
 
       var view = new google.visualization.DataView(data);
