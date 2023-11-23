@@ -141,8 +141,19 @@ if($index_result->num_rows> 0){
             $("select[name='year']").on("change", function() {
                 setOption($(this).attr("id"), "quarter");
             });
-            $("select[name='region']").on("change", function() {
-                setOption($(this).attr("id"), "hospital");
+            $("select[name='region[]']").on("change", function() {
+
+                if($(this).find("option:selected").length == 1) {
+                    setOption($(this).attr("id"), "hospital");
+                    $("#hospital").attr("disabled", false);
+                } else {
+                    $("#hospital").attr("selected", false);
+                    $("#hospital").attr("disabled", true);
+                    $("#hospital").selectpicker('destroy');
+                    $("#hospital option").remove();
+                    $("#hospital").selectpicker("refresh");
+                }
+
             });
 
             $("#btn_analysis").on("click", function() {
@@ -205,7 +216,7 @@ if($index_result->num_rows> 0){
             <div class="right">
 
                 <div> <p> ▶  <strong>권역</strong>을 선택해주세요 </p>
-                    <select id="region" name="region" class="selectpicker" data-width="70%" title="권역 선택" aria-label="Default select example">
+                    <select id="region" name="region[]" class="selectpicker" data-width="70%" multiple title="권역 선택" data-actions-box="true" aria-label="Default select example">
                         <?php foreach ($region_options as $region_options) { ?>
                         <option><?php echo $region_options['권역']; ?> </option>
                         <?php } ?>
