@@ -165,7 +165,7 @@ if($index_result->num_rows> 0){
                 //console.log($("#searchfrm").serialize());
 
                 var act_page = "analysisResult.php";
-                if($(this).find("option:selected").length > 1) {
+                if($("#index").find("option:selected").length > 1) {
                     act_page = "analysisMultiResult.php";
                 }
 
