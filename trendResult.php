@@ -80,24 +80,53 @@ $result = $conn->query($query);
 <h5> <다음은 검색 결과 지표입니다.> </h5>
 <table width= "800" border="1" cellspacing="0" cell padding="5">
 <tr align="center">
-<td bgcolor="#cccccc">연도</td>
-<td bgcolor="#cccccc">분기</td>
-<td bgcolor="#cccccc">권역</td>
-<td bgcolor="#cccccc">기관(병원)</td>
-<td bgcolor="#cccccc">지표</td>
+<td bgcolor="#cccccc"></td>
+<td bgcolor="#cccccc">강동경희대학교의대병원</td>
+<td bgcolor="#cccccc">삼성서울병원</td>
+<td bgcolor="#cccccc">성심의료재단강동성심병원</td>
+</tr>
+<tr align="center">
+<td bgcolor="#eeeeee">목표</td>
+<td bgcolor="#eeeeee">≥ 95.0</td>
+<td bgcolor="#eeeeee">≥ 95.0</td>
+<td bgcolor="#eeeeee">≥ 95.0</td>
+</tr>
 
 <?php
+    echo "<tr align='center'>
+    <td> 2022 년 2 분기 </td>
+    <td> 100 </td>
+    <td> 81.8 </td>
+    <td> 71.4 </td>
+    </tr>
+    ";
+    echo "<tr align='center'>
+    <td> 2022 년 3 분기 </td>
+    <td> 100 </td>
+    <td> 100 </td>
+    <td> 80 </td>
+    </tr>
+    ";
+    echo "<tr align='center'>
+    <td> 2022 년 4 분기 </td>
+    <td> 40 </td>
+    <td> 75 </td>
+    <td> 0 </td>
+    </tr>
+    ";
+
+/*
 while ( $rows = $result->fetch_array())
 {
     echo "<tr align='center'>
-    <td> $rows[0] </td>
-    <td> $rows[1] </td>
+    <td> $rows[0] 년 $rows[1] 분기 </td>
     <td> $rows[2] </td>
     <td> $rows[3] </td>
     <td> $rows[4] </td>
     </tr>
     ";
 }
+*/
 
 // $nrows= mysqli_fetch_all($result, MYSQLI_ASSOC);
 // echo "<br>";
