@@ -48,17 +48,16 @@ $result = $conn->query($query);
 
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Year', 'Sales', 'Expenses', 'Profit'],
-          ['2014', 1000, 400, 200],
-          ['2015', 1170, 460, 250],
-          ['2016', 660, 1120, 300],
-          ['2017', 1030, 540, 350]
+          ['', '강원권역', '강릉아산병원', '연세대학교 원주세브란스기독병원'],
+          ['사례조사실시율', 98.5, 95.6, 96.8],
+          ['사례조사기간준수율', 98.5, 95.6, 96.8],
+          ['결핵의심자객도말검사양성률', 98.5, 95.6, 96.8]
         ]);
 
         var options = {
           chart: {
-            title: 'Company Performance',
-            subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+            title: '',
+            subtitle: '',
           }
         };
 
