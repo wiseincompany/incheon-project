@@ -48,13 +48,13 @@ $result = $conn->query($query);
 
     function drawCurveTypes() {
       var data = new google.visualization.DataTable();
-      data.addColumn('number', 'X');
+      data.addColumn('string', 'X');
       data.addColumn('number', '강동경희대학교의대병원');
       data.addColumn('number', '삼성서울병원');
       data.addColumn('number', '성심의료재단강동성심병원');
 
       data.addRows([
-        ['2022년 2분기', 100, 81.8, 71.4],    ['2022년 2분기', 100, 100, 80],   ['2022년 2분기', 40, 75, 0]
+        ['2022년 2분기', 100, 81.8, 71.4],['2022년 2분기', 100, 100, 80],['2022년 2분기', 40, 75, 0]
       ]);
 
       var options = {
