@@ -50,7 +50,7 @@ $result = $conn->query($query);
         ["전국", 98.5, "silver"],
         ["강원권역", 95.6, "#007bff"],
         ["경북권역", 96.8, "#007bff"],
-        ["광주권", 93.4, "#007bff"],
+        ["광주권역", 93.4, "#007bff"],
       ]);
 
       var view = new google.visualization.DataView(data);
@@ -80,37 +80,38 @@ $result = $conn->query($query);
 <table width= "800" border="1" cellspacing="0" cell padding="5">
 <tr align="center">
 <td bgcolor="#cccccc"></td>
-<td bgcolor="#cccccc">강동경희대학교의대병원</td>
-<td bgcolor="#cccccc">삼성서울병원</td>
-<td bgcolor="#cccccc">성심의료재단강동성심병원</td>
+<td bgcolor="#cccccc"><?=$index?></td>
+<td bgcolor="#cccccc">p</td>
 </tr>
 <tr align="center">
 <td bgcolor="#eeeeee">목표</td>
 <td bgcolor="#eeeeee">≥ 95.0</td>
-<td bgcolor="#eeeeee">≥ 95.0</td>
-<td bgcolor="#eeeeee">≥ 95.0</td>
+<td bgcolor="#eeeeee"></td>
 </tr>
 
 <?php
     echo "<tr align='center'>
-    <td> 2022 년 2 분기 </td>
-    <td> 100 </td>
-    <td> 81.8 </td>
-    <td> 71.4 </td>
+    <td> 전국 </td>
+    <td> 98.5 </td>
+    <td> 참조범주 </td>
     </tr>
     ";
     echo "<tr align='center'>
-    <td> 2022 년 3 분기 </td>
-    <td> 100 </td>
-    <td> 100 </td>
-    <td> 80 </td>
+    <td> 강원권역 </td>
+    <td> 95.6 </td>
+    <td> p=0.041* </td>
     </tr>
     ";
     echo "<tr align='center'>
-    <td> 2022 년 4 분기 </td>
-    <td> 40 </td>
-    <td> 75 </td>
-    <td> 0 </td>
+    <td> 경북권역 </td>
+    <td> 96.8 </td>
+    <td> P=0.542 </td>
+    </tr>
+    ";
+    echo "<tr align='center'>
+    <td> 광주권역 </td>
+    <td> 93.4 </td>
+    <td> P=0.001** </td>
     </tr>
     ";
 
