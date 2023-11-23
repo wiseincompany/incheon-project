@@ -40,39 +40,38 @@ $query ="SELECT 연도, 분기, 권역, 기관, $index FROM newTotalUploadNomiss
 //echo $query."<br>";
 $result = $conn->query($query);
 ?>
-
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript">
-    google.charts.load('current', {packages: ['corechart', 'line']});
-    google.charts.setOnLoadCallback(drawCurveTypes);
-
-    function drawCurveTypes() {
-      var data = new google.visualization.DataTable();
-      data.addColumn('string', 'X');
-      data.addColumn('number', '강동경희대학교의대병원');
-      data.addColumn('number', '삼성서울병원');
-      data.addColumn('number', '성심의료재단강동성심병원');
-
-      data.addRows([
-        ['2022년 2분기', 100, 81.8, 71.4],['2022년 2분기', 100, 100, 80],['2022년 2분기', 40, 75, 0]
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load("current", {packages:['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ["Element", "Density", { role: "style" } ],
+        ["Copper", 8.94, "#b87333"],
+        ["Silver", 10.49, "silver"],
+        ["Gold", 19.30, "gold"],
+        ["Platinum", 21.45, "color: #e5e4e2"]
       ]);
 
-      var options = {
-        hAxis: {
-          title: ''
-        },
-        vAxis: {
-          title: ''
-        },
-        series: {
-          1: {curveType: 'function'}
-        }
-      };
+      var view = new google.visualization.DataView(data);
+      view.setColumns([0, 1,
+                       { calc: "stringify",
+                         sourceColumn: 1,
+                         type: "string",
+                         role: "annotation" },
+                       2]);
 
-      var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
-      chart.draw(data, options);
-    }
-</script>
+      var options = {
+        title: "",
+        width: 600,
+        height: 400,
+        bar: {groupWidth: "95%"},
+        legend: { position: "none" },
+      };
+      var chart = new google.visualization.ColumnChart(document.getElementById("chart_div"));
+      chart.draw(view, options);
+  }
+  </script>
 
 <div id="chart_div"></div> 
 
