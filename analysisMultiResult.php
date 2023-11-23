@@ -36,6 +36,7 @@ if($hospital != "") {
 } 
 if($search_sql != "") $search_sql = " WHERE " . $search_sql;
 // $query ="SELECT 연도, 분기, 권역, $index FROM new_total_upload_nomissing $search_sql";
+if(is_array($index)) $index = implode(",", $index);
 $query ="SELECT 연도, 분기, 권역, 기관, $index FROM newTotalUploadNomissing $search_sql";
 //echo $query."<br>";
 $result = $conn->query($query);
