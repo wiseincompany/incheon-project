@@ -57,8 +57,9 @@ $result = $conn->query($query);
         var options = {
           chart: {
             title: '',
-            subtitle: '',
-          }
+            subtitle: ''            
+          },
+          legend: { position: 'bottom' }
         };
 
         var chart = new google.charts.Bar(document.getElementById('chart_div'));
