@@ -9,6 +9,10 @@ $region = isset($_POST['region']) ? $_POST['region'] : false;
 $hospital = isset($_POST['hospital']) ? $_POST['hospital'] : false;
 $index = isset($_POST['index']) ? $_POST['index'] : false;
 
+echo "<pre>";
+print_r($POST);
+echo "</pre>";
+
 $search_sql = "";
 if($syear != "") $search_sql .= ($search_sql != "") ? " AND 연도 >= '$syear' " : " 연도 >= '$syear' ";   
 if($squarter != "") $search_sql .= ($search_sql != "") ? " AND 분기 >= '$squarter' " : " 분기 >= '$squarter' ";    
