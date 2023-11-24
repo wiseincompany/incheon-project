@@ -1,6 +1,8 @@
 <?php
 include "common.php";
 
+if($_GET['syear'] != "") $_POST = $_GET;
+
 $syear = isset($_POST['syear']) ? $_POST['syear'] : false;
 $squarter = isset($_POST['squarter']) ? $_POST['squarter'] : false;
 $eyear = isset($_POST['eyear']) ? $_POST['eyear'] : false;
