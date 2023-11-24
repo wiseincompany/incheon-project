@@ -10,7 +10,7 @@ $hospital = isset($_POST['hospital']) ? $_POST['hospital'] : false;
 $index = isset($_POST['index']) ? $_POST['index'] : false;
 
 echo "<pre>";
-print_r($POST);
+print_r($_POST);
 echo "</pre>";
 
 $search_sql = "";
