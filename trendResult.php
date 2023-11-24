@@ -38,7 +38,8 @@ if($hospital != "") {
 } 
 if($search_sql != "") $search_sql = " WHERE " . $search_sql;
 // $query ="SELECT 연도, 분기, 권역, $index FROM new_total_upload_nomissing $search_sql";
-$query ="SELECT 연도, 분기, 권역, 기관, AVG($index) AS $index FROM newTotalUploadNomissing $search_sql GROUP BY 연도,분기";
+$group = ($hospital != "") ? "기관" :"권역"
+$query ="SELECT 연도, 분기, 권역, 기관, AVG($index) AS $index FROM newTotalUploadNomissing $search_sql GROUP BY 연도,분기,$group";
 echo $query."<br>";
 $result = $conn->query($query);
 unset($chart_list);
