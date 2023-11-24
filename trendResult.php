@@ -40,7 +40,7 @@ if($search_sql != "") $search_sql = " WHERE " . $search_sql;
 // $query ="SELECT 연도, 분기, 권역, $index FROM new_total_upload_nomissing $search_sql";
 $group = ($hospital != "") ? "기관" :"권역";
 $query ="SELECT 연도, 분기, 권역, 기관, AVG($index) AS $index FROM newTotalUploadNomissing $search_sql GROUP BY 연도,분기,$group";
-echo $query."<br>";
+//echo $query."<br>";
 $result = $conn->query($query);
 unset($chart_list);
 while ( $rows = $result->fetch_array())
@@ -50,9 +50,6 @@ while ( $rows = $result->fetch_array())
   $rows_name = $rows['연도']."_".$rows['분기'];
   $chart_list['rows'][$rows_name][$data_name] = $rows;
 }
-echo "<pre>";
-print_r($chart_list);
-echo "</pre>";
 ?>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
