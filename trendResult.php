@@ -1,7 +1,7 @@
 <?php
 include "common.php";
 // test 위해서 get 데이터 할당
-if($_GET['syear'] != "") $_POST = $_GET;
+//if($_GET['syear'] != "") $_POST = $_GET;
 
 $syear = isset($_POST['syear']) ? $_POST['syear'] : false;
 $squarter = isset($_POST['squarter']) ? $_POST['squarter'] : false;
