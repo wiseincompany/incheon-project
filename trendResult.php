@@ -82,7 +82,7 @@ echo "</pre>";
             if(is_array($rows)) {
               foreach($rows as $jj => $row) {
                 if($data_str != "") $data_str .= ",";
-                $data_str = $row[$index];
+                $data_str .= $row[$index];
               }
             }
         ?>
