@@ -61,7 +61,7 @@ while ( $rows = $result->fetch_array())
       if(is_array($chart_list['column'])) {
         foreach($chart_list['column'] as $ii => $column) {
       ?>
-      data.addColumn('number', <?=$column?>);
+      data.addColumn('number', '<?=$column?>');
       <?php
         }
       }
