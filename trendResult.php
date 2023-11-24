@@ -42,11 +42,11 @@ $result = $conn->query($query);
 unset($chart_list);
 while ( $rows = $result->fetch_array())
 {
-  $chart_list[] = $rows;
+  $data_name = ($hospital != "") ? $row["기관"] : $row["권역"];
+  $chart_list['column'][$data_name] = $data_name;
+  $rows_name = $rows['연도']."_".$rows['분기'];
+  $chart_list['rows'][$rows_name][$data_name] = $rows;
 }
-echo "<Pre>";
-print_r($chart_list);
-echo "</pre>";
 ?>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -57,12 +57,34 @@ echo "</pre>";
     function drawCurveTypes() {
       var data = new google.visualization.DataTable();
       data.addColumn('string', 'X');
-      data.addColumn('number', '강동경희대학교의대병원');
-      data.addColumn('number', '삼성서울병원');
-      data.addColumn('number', '성심의료재단강동성심병원');
+      <?php
+      if(is_array($chart_list['column'])) {
+        foreach($chart_list['column'] as $ii => $column) {
+      ?>
+      data.addColumn('number', <?=$column?>);
+      <?php
+        }
+      }
+      ?>
 
       data.addRows([
-        ['2022년 2분기', 100, 81.8, 71.4],['2022년 3분기', 100, 100, 80],['2022년 4분기', 40, 75, 0]
+        <?php
+        if(is_array($chart_list['rows'])) {
+          foreach($chart_list['rows'] as $ii => $rows) {
+            list($y, $q) = explode("_", $ii);
+            $data_str = "";
+            if(is_array($rows)) {
+              foreach($rows as $jj => $row) {
+                if($data_str != "") $data_str .= ",";
+                $data_str = $row[$index];
+              }
+            }
+        ?>
+        ['<?=$y?>년 <?=$q?>분기', <?=$data_str?>],
+        <?php
+          }
+        }
+        ?>
       ]);
 
       var options = {
