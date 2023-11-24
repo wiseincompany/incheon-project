@@ -1,6 +1,6 @@
 <?php
 include "common.php";
-
+// test 위해서 get 데이터 할당
 if($_GET['syear'] != "") $_POST = $_GET;
 
 $syear = isset($_POST['syear']) ? $_POST['syear'] : false;
@@ -10,10 +10,6 @@ $equarter = isset($_POST['equarter']) ? $_POST['equarter'] : false;
 $region = isset($_POST['region']) ? $_POST['region'] : false;
 $hospital = isset($_POST['hospital']) ? $_POST['hospital'] : false;
 $index = isset($_POST['index']) ? $_POST['index'] : false;
-
-echo "<pre>";
-print_r($_POST);
-echo "</pre>";
 
 $search_sql = "";
 if($syear != "") $search_sql .= ($search_sql != "") ? " AND 연도 >= '$syear' " : " 연도 >= '$syear' ";   
@@ -53,6 +49,9 @@ while ( $rows = $result->fetch_array())
   $rows_name = $rows['연도']."_".$rows['분기'];
   $chart_list['rows'][$rows_name][$data_name] = $rows;
 }
+echo "<pre>";
+print_r($chart_list);
+echo "</pre>";
 ?>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
