@@ -63,6 +63,7 @@ $result = $conn->query($query);
 unset($chart_list);
 while ( $rows = $result->fetch_array())
 {
+  $data_name = ($hospital != "") ? $rows["기관"] : $rows["권역"];
   $chart_list[$data_name] = $rows;
 }
 
