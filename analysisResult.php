@@ -183,7 +183,7 @@ if($hospital != "") {
             FROM newTotalUploadNomissing 
             WHERE 연도 = '$year' AND 분기 = '$quarter' AND 권역 IN ($region_text)
             UNION
-            SELECT 연도, 분기, 권역, 기관, AVG($index) AS $index
+            SELECT 연도, 분기, 권역, 기관, AVG($index) AS $index, $n_name AS n
             FROM newTotalUploadNomissing 
             WHERE 연도 = '$year' AND 분기 = '$quarter' AND 권역 IN ($region_text) AND 기관 IN ($hospital_text)
             GROUP BY 기관";
@@ -192,7 +192,7 @@ if($hospital != "") {
             FROM newTotalUploadNomissing
             WHERE 연도 = '$year' AND 분기 = '$quarter'
             UNION
-            SELECT 연도, 분기, 권역, 기관, AVG($index) AS $index
+            SELECT 연도, 분기, 권역, 기관, AVG($index) AS $index, $n_name AS n
             FROM newTotalUploadNomissing 
             WHERE 연도 = '$year' AND 분기 = '$quarter' AND 권역 IN ($region_text)
             GROUP BY 권역";
