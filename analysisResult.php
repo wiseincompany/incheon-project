@@ -63,10 +63,7 @@ $result = $conn->query($query);
 unset($chart_list);
 while ( $rows = $result->fetch_array())
 {
-  $data_name = ($hospital != "") ? $rows["기관"] : $rows["권역"];
-  $chart_list['column'][$data_name] = $data_name;
-  $rows_name = $rows['연도']."_".$rows['분기'];
-  $chart_list['rows'][$rows_name][$data_name] = $rows;
+  $chart_list[$data_name] = $rows;
 }
 
 echo "<Pre>";
@@ -81,10 +78,16 @@ echo "</pre>";
     function drawChart() {
       var data = google.visualization.arrayToDataTable([
         ["Element", "Density", { role: "style" } ],
-        ["전국", 98.5, "silver"],
-        ["강원권역", 95.6, "#007bff"],
-        ["경북권역", 96.8, "#007bff"],
-        ["광주권역", 93.4, "#007bff"],
+        <?php
+        if(is_array($chart_list)) {
+          foreach($chart_list as $name => $row) {
+            $color = ($color == "") ? "silver" : "#007bff";
+        ?>
+        ["<?=$name?>", <?=$row[$index]?>, "<?=$color?>"],
+        <?php
+          }
+        }
+        ?>
       ]);
 
       var view = new google.visualization.DataView(data);
