@@ -38,7 +38,7 @@ if($search_sql != "") $search_sql = " WHERE " . $search_sql;
 // $query ="SELECT 연도, 분기, 권역, $index FROM new_total_upload_nomissing $search_sql";
 
 if($hospital != "") {
-  $query ="SELECT 연도, 분기, 권역, '$region_text' AS 기관, AVG($index) AS $index
+  $query ="SELECT 연도, 분기, 권역, $region_text AS 기관, AVG($index) AS $index
             FROM newTotalUploadNomissing 
             WHERE 연도 = '$year' AND 분기 = '$quarter' AND 권역 IN ($region_text)
             UNION
