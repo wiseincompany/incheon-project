@@ -129,49 +129,15 @@ echo "</pre>";
 </tr>
 
 <?php
+$p = "";
+if(is_array($chart_list)) {
+  foreach($chart_list as $name => $row) {
     echo "<tr align='center'>
-    <td> 전국 </td>
-    <td> 98.5 </td>
-    <td> 참조범주 </td>
+    <td> $name </td>
+    <td> $row[$index] </td>
+    <td> $p </td>
     </tr>
     ";
-    echo "<tr align='center'>
-    <td> 강원권역 </td>
-    <td> 95.6 </td>
-    <td> p=0.041* </td>
-    </tr>
-    ";
-    echo "<tr align='center'>
-    <td> 경북권역 </td>
-    <td> 96.8 </td>
-    <td> P=0.542 </td>
-    </tr>
-    ";
-    echo "<tr align='center'>
-    <td> 광주권역 </td>
-    <td> 93.4 </td>
-    <td> P=0.001** </td>
-    </tr>
-    ";
-
-/*
-while ( $rows = $result->fetch_array())
-{
-    echo "<tr align='center'>
-    <td> $rows[0] 년 $rows[1] 분기 </td>
-    <td> $rows[2] </td>
-    <td> $rows[3] </td>
-    <td> $rows[4] </td>
-    </tr>
-    ";
+  }
 }
-*/
-
-// $nrows= mysqli_fetch_all($result, MYSQLI_ASSOC);
-// echo "<br>";
-// echo $query."<br>";
-// echo "<pre>";
-// print_r($nrows);
-// echo "</pre>";
-
 ?>
