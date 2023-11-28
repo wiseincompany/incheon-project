@@ -179,25 +179,25 @@ function get_n_name($index) {
 $n_name = get_n_name($index);
 
 if($hospital != "") {
-  $query ="SELECT 연도, 분기, 권역, $region_text AS 기관, AVG($index) AS $index, $n_name AS n
+  $query ="SELECT 연도, 분기, 권역, $region_text AS 기관, AVG($index) AS $index, SUM($n_name) AS n
             FROM newTotalUploadNomissing 
             WHERE 연도 = '$year' AND 분기 = '$quarter' AND 권역 IN ($region_text)
             UNION
-            SELECT 연도, 분기, 권역, 기관, AVG($index) AS $index, $n_name AS n
+            SELECT 연도, 분기, 권역, 기관, AVG($index) AS $index, SUM($n_name) AS n
             FROM newTotalUploadNomissing 
             WHERE 연도 = '$year' AND 분기 = '$quarter' AND 권역 IN ($region_text) AND 기관 IN ($hospital_text)
             GROUP BY 기관";
 } else if($region != "") {
-  $query ="SELECT 연도, 분기, '전국' AS 권역, '전국' AS 기관, AVG($index) AS $index, $n_name AS n
+  $query ="SELECT 연도, 분기, '전국' AS 권역, '전국' AS 기관, AVG($index) AS $index, SUM($n_name) AS n
             FROM newTotalUploadNomissing
             WHERE 연도 = '$year' AND 분기 = '$quarter'
             UNION
-            SELECT 연도, 분기, 권역, 기관, AVG($index) AS $index, $n_name AS n
+            SELECT 연도, 분기, 권역, 기관, AVG($index) AS $index, SUM($n_name) AS n
             FROM newTotalUploadNomissing 
             WHERE 연도 = '$year' AND 분기 = '$quarter' AND 권역 IN ($region_text)
             GROUP BY 권역";
 } else {
-  $query ="SELECT 연도, 분기, 권역, 기관, $index, $n_name AS n FROM newTotalUploadNomissing $search_sql";
+  $query ="SELECT 연도, 분기, 권역, 기관, $index, SUM($n_name) AS n FROM newTotalUploadNomissing $search_sql";
 }
 echo $query."<br>";
 $result = $conn->query($query);
@@ -296,7 +296,7 @@ $p = "참조범주";
 $mu = "";
 if(is_array($chart_list)) {
   foreach($chart_list as $name => $row) {
-    $n = $row[''];
+    $n = $row['n'];
     if($mu == "") $mu = $row[$index];
     else $p = get_p_value($mu, $row[$index],$n);
     echo "<tr align='center'>
