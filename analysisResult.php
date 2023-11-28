@@ -80,6 +80,7 @@ echo "</pre>";
       var data = google.visualization.arrayToDataTable([
         ["Element", "Density", { role: "style" } ],
         <?php
+        $color = "";
         if(is_array($chart_list)) {
           foreach($chart_list as $name => $row) {
             $color = ($color == "") ? "silver" : "#007bff";
