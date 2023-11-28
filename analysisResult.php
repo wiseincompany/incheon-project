@@ -47,7 +47,7 @@ if($hospital != "") {
             WHERE 연도 = '$year' AND 분기 = '$quarter' AND 권역 IN ($region_text) AND 기관 IN ($hospital_text)
             GROUP BY 기관";
 } else if($region != "") {
-  $query ="SELECT 연도, 분기, 권역, '전국' AS 기관, AVG($index) AS $index
+  $query ="SELECT 연도, 분기, '전국' AS 권역, '전국' AS 기관, AVG($index) AS $index
             FROM newTotalUploadNomissing
             WHERE 연도 = '$year' AND 분기 = '$quarter'
             UNION
