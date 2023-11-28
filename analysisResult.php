@@ -8,8 +8,8 @@ $hospital = isset($_POST['hospital']) ? $_POST['hospital'] : false;
 $index = isset($_POST['index']) ? $_POST['index'] : false;
 
 $search_sql = "";
-if($year != "") $search_sql .= " AND 연도 = '$year' ";
-if($quarter != "") $search_sql .= " AND 분기 = '$quarter' ";
+if($year != "") { if($search_sql != "") $search_sql .= " AND "; $search_sql .= " 연도 = '$year' "; }
+if($quarter != "") { if($search_sql != "") $search_sql .= " AND ";  $search_sql .= " 분기 = '$quarter' "; }
 if($region != "") {
     if(is_array($region)) {
         $region_text = "";
