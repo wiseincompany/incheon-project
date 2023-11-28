@@ -11,7 +11,7 @@ $index = isset($_POST['index']) ? $_POST['index'] : false;
 
 $search_sql = "";
 if($year != "") $search_sql .= " AND 연도 = '$year' ";
-if($quarter != "") $search_sql .= " AND 분기 = '$quarter' "";
+if($quarter != "") $search_sql .= " AND 분기 = '$quarter' ";
 if($region != "") {
     if(is_array($region)) {
         $region_text = "";
