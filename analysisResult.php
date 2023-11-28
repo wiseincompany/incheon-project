@@ -1,10 +1,8 @@
 <?php
 include "common.php";
 
-$syear = isset($_POST['syear']) ? $_POST['syear'] : false;
-$squarter = isset($_POST['squarter']) ? $_POST['squarter'] : false;
-$eyear = isset($_POST['eyear']) ? $_POST['eyear'] : false;
-$equarter = isset($_POST['equarter']) ? $_POST['equarter'] : false;
+$year = isset($_POST['year']) ? $_POST['year'] : false;
+$quarter = isset($_POST['quarter']) ? $_POST['quarter'] : false;
 $region = isset($_POST['region']) ? $_POST['region'] : false;
 $hospital = isset($_POST['hospital']) ? $_POST['hospital'] : false;
 $index = isset($_POST['index']) ? $_POST['index'] : false;
