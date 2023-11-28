@@ -36,7 +36,28 @@ if(is_array($index)) {
 }
 if($search_sql != "") $search_sql = " WHERE " . $search_sql;
 // $query ="SELECT 연도, 분기, 권역, $index FROM new_total_upload_nomissing $search_sql";
-$query ="SELECT 연도, 분기, 권역, 기관, $index FROM newTotalUploadNomissing $search_sql";
+
+if($hospital != "") {
+  $query ="SELECT 연도, 분기, 권역, '$region_text' AS 기관, AVG($index) AS $index
+            FROM newTotalUploadNomissing 
+            WHERE 연도 = '$year' AND 분기 = '$quarter' AND 권역 IN ($region_text)
+            UNION
+            SELECT 연도, 분기, 권역, 기관, AVG($index) AS $index
+            FROM newTotalUploadNomissing 
+            WHERE 연도 = '$year' AND 분기 = '$quarter' AND 권역 IN ($region_text) AND 기관 IN ($hospital_text)
+            GROUP BY 기관";
+} else if($region != "") {
+  $query ="SELECT 연도, 분기, 권역, '전국' AS 기관, AVG($index) AS $index
+            FROM newTotalUploadNomissing
+            WHERE 연도 = '$year' AND 분기 = '$quarter'
+            UNION
+            SELECT 연도, 분기, 권역, 기관, AVG($index) AS $index
+            FROM newTotalUploadNomissing 
+            WHERE 연도 = '$year' AND 분기 = '$quarter' AND 권역 IN ($region_text)
+            GROUP BY 권역";
+} else {
+  $query ="SELECT 연도, 분기, 권역, 기관, $index FROM newTotalUploadNomissing $search_sql";
+}
 echo $query."<br>";
 $result = $conn->query($query);
 ?>
