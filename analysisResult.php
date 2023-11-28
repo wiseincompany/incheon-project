@@ -10,10 +10,8 @@ $hospital = isset($_POST['hospital']) ? $_POST['hospital'] : false;
 $index = isset($_POST['index']) ? $_POST['index'] : false;
 
 $search_sql = "";
-if($syear != "") $search_sql .= ($search_sql != "") ? " AND 연도 >= '$syear' " : " 연도 >= '$syear' ";   
-if($squarter != "") $search_sql .= ($search_sql != "") ? " AND 분기 >= '$squarter' " : " 분기 >= '$squarter' ";    
-if($eyear != "") $search_sql .= ($search_sql != "") ? " AND 연도 <= '$eyear' " : " 연도 <= '$eyear' ";   
-if($equarter != "") $search_sql .= ($search_sql != "") ? " AND 분기 <= '$equarter' " : " 분기 <= '$equarter' ";    
+if($year != "") $search_sql .= " AND 연도 = '$year' ";
+if($quarter != "") $search_sql .= " AND 분기 = '$quarter' "";
 if($region != "") {
     if(is_array($region)) {
         $region_text = "";
@@ -41,7 +39,7 @@ if(is_array($index)) {
 if($search_sql != "") $search_sql = " WHERE " . $search_sql;
 // $query ="SELECT 연도, 분기, 권역, $index FROM new_total_upload_nomissing $search_sql";
 $query ="SELECT 연도, 분기, 권역, 기관, $index FROM newTotalUploadNomissing $search_sql";
-echo $query."<br>";
+//echo $query."<br>";
 $result = $conn->query($query);
 ?>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
