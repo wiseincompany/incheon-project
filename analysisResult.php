@@ -60,6 +60,19 @@ if($hospital != "") {
 }
 echo $query."<br>";
 $result = $conn->query($query);
+unset($chart_list);
+while ( $rows = $result->fetch_array())
+{
+  $data_name = ($hospital != "") ? $rows["기관"] : $rows["권역"];
+  $chart_list['column'][$data_name] = $data_name;
+  $rows_name = $rows['연도']."_".$rows['분기'];
+  $chart_list['rows'][$rows_name][$data_name] = $rows;
+}
+
+echo "<Pre>";
+print_r($chart_list);
+echo "</pre>";
+
 ?>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script type="text/javascript">
