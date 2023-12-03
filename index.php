@@ -105,8 +105,9 @@ if($index_result->num_rows> 0){
     <title>결핵 환자 관리지표</title>
 	<meta charset="utf-8">
 	<link href="style.css" rel="stylesheet" type="text/css">
-	<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&display=swap" rel="stylesheet">
+	 <link rel="preconnect" href="https://fonts.googleapis.com">
+	 <link rel="preconnect" href="https://fonts.googleapis.com">	 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   	 <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Noto+Sans+KR&family=Roboto&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
@@ -174,74 +175,69 @@ if($index_result->num_rows> 0){
 
 </head>
 <body>
-    <div class="container w-100" align="left">
+    <div class="wrapper">
         <form method="post" action="analysis.php" id="searchfrm" onsubmit="return false;">
-		<div class="title" style="border-radius:5px;">
-			<h3>결핵 환자 관리지표 </h3>
-			<h6>전국 코호트 활동성 결핵 환자 관리지표입니다</h6>
+		<div class="header">
+			 <div class="header-content">
+               	 		<h3>결핵 환자 관리지표 </h3>
+                		<h6>전국 코호트 활동성 결핵 환자 관리지표입니다</h6>
+           		 </div>
+           		 <p class="header-user">안녕하세요 <strong>wise</strong>님</p>
 		</div>
 
-        <div class="upper w-100" style="border-radius:5px;">
-
-            <div class="left">
-            
-                <div> <p> ▶ <strong>연도</strong>를 선택해주세요 </p>
-                    <select id="year" name="year" class="selectpicker" data-width="70%" title="연도 선택" aria-label="Default select example">
+	<div class="content">
+	    <div class="content-select">          
+                <div> <p><span class="icon">▶</span><strong>연도</strong>를 선택해주세요 </p>
+                    <select id="year" name="year" class="selectpicker"  title="연도 선택" aria-label="Default select example">
                         <?php foreach ($year_options as $year_options) { ?>
                         <option><?php echo $year_options['연도']; ?> </option>
                         <?php } ?>
                     </select> <p></p> 
                 </div>
-
-                <div> <p> ▶  <strong>분기</strong>를 선택해주세요 </p>
-                    <select id="quarter" name="quarter" class="selectpicker" data-width="70%" title="분기 선택" aria-label="Default select example">
+                <div> <p><span class="icon">▶</span><strong>분기</strong>를 선택해주세요 </p>
+                    <select id="quarter" name="quarter" class="selectpicker" title="분기 선택" aria-label="Default select example">
                         <?php foreach ($quarter_options as $quarter_options) { ?>
                         <option><?php echo $quarter_options['분기']; ?> </option>
                         <?php } ?>
                     </select> <p></p> 
                 </div>
             </div>
-
-            <div class="right">
-
-                <div> <p> ▶  <strong>권역</strong>을 선택해주세요 </p>
-                    <select id="region" name="region" class="selectpicker" data-width="70%" title="권역 선택" aria-label="Default select example">
+	    <span></span>
+	     <div class="right content-select">
+                <div> <p><span class="icon">▶</span> <strong>권역</strong>을 선택해주세요 </p>
+                    <select id="region" name="region" class="selectpicker"  title="권역 선택" aria-label="Default select example">
                         <?php foreach ($region_options as $region_options) { ?>
                         <option><?php echo $region_options['권역']; ?> </option>
                         <?php } ?>
                     </select> <p></p>  
                 </div>
-
-                <div> <p> ▶  <strong>기관(병원)</strong>을 선택해주세요 </p>
-                    <select id="hospital" name="hospital[]" class="selectpicker" data-width="70%" multiple title="복수 선택 가능" data-actions-box="true" aria-label="Default select example">
+                <div> <p> <span class="icon">▶</span><strong>기관(병원)</strong>을 선택해주세요 </p>
+                    <select id="hospital" name="hospital[]" class="selectpicker" multiple title="복수 선택 가능" data-actions-box="true" aria-label="Default select example">
                         <option value="">권역을 먼저 선택해주세요</option>
                     </select> <p></p> 
                 </div>
             </div>
-
-            <div> <p> ▶ 검색하려는 <strong>지표</strong>를 선택해주세요 </p>
-                <select id="index" name="index" class="selectpicker" data-width="50%" title="지표" aria-label="Default select example">
+	    <span></span>
+	     <div class="content-select-Indicators"> <p><span class="icon">▶</span> 검색하려는 <strong>지표</strong>를 선택해주세요 </p>
+                <select id="index" name="index" class="selectpicker" data-width="50%" multiple-title="지표" aria-label="Default select example">
                     <?php foreach ($index_options as $index_options) {?>
                     <option><?php echo $index_options['Field']; ?> </option>
                     <?php } ?>
 
                 </select> <p></p> 
             </div>
-        </div>
-
-        <div class="container w-50" align="center">
-            <input type="submit" name="submit" id="btn_analysis" class="btn btn-primary" value="분석 실행"/>
-            <input type="reset" name="reset" class="btn btn-warning" value="설정초기화"/>
-
+	    <div class="btn-content">
+                <input type="submit" name="submit" id="btn_analysis" class="btn-submit" value="분석 실행"/>
+                <input type="reset" name="reset" class="btn-reset" value="설정초기화"/>
+            </div>
     </form>
 
 
     </div>
-    
-    <div class="container w-100" align="left">
-        <div id="basic" class="basic" align="center" style="border-radius:5px;">
-    </div>
 
+     <div class="content result" >
+        <div id="basic" class="basic" align="center">
+    </div>
     </div>
 
 </body>

@@ -1,98 +1,197 @@
 /**
  * 공통 적용
  */
-body {
-  background: #e0e5ec;
-}
 
-h3 {
-  position: relative;
-  text-align: left;
-  color: #FFFFFF;
-  font-size: 50px;
-  font-family: "Lato", serif;
-}
-
-h6 {
-  font-family: 'Lato', sans-serif;
-  font-weight: 300;
-  text-align: left;
-  font-size: 18px;
-  color: #FFFFFF;
-}
-
-div.title{
-	background: #2F4F4F;
-	/*margin: 15px 25px 15px 0px; */
-	margin: 15px 0px;
-	padding: 15px;
-}
-
-/**
- * div 왼쪽 오른쪽 적용
- */
-
-div.upper {
+ :root {
+	--main-font-color: #242424;
+	--sub-font-color: var(--color-white);
+	--main-bg-color: #f5f5f5;
+	--main-border-color: #bdbdbd;
+	--main-accent-color: #005b53;
+  
+	--color-white: #ffffff;
+  
+	--main-box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+	  rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  }
+  html,
+  body {
+	margin: 0;
+	padding: 0;
+	background-color: var(--main-bg-color);
+	overflow-y: hidden;
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  strong {
+	color: #242424;
+	margin: 0;
+	padding: 0;
+	font-family: "Nanum Gothic", sans-serif;
+  }
+  
+  .wrapper {
+	max-width: 1080px;
+	margin: 0 auto;
+	padding: 16px 0;
+  }
+  
+  /* 헤더 */
+  
+  .header {
+	position: relative;
+	padding: 15px 20px;
+	background-color: var(--main-accent-color);
+	box-shadow: var(--main-box-shadow);
+	border-radius: 8px;
+  }
+  
+  .header-content {
+	text-align: center;
+  }
+  .header-content > h3 {
+	color: var(--sub-font-color);
+	font-size: 28px;
+	margin-bottom: 10px;
+  }
+  
+  .header-content > h6 {
+	font-size: 15px;
+	color: var(--sub-font-color);
+  }
+  
+  .header-user {
+	position: absolute;
+	top: 10px;
+	right: 20px;
+	font-size: 14px;
+	color: var(--sub-font-color);
+  }
+  .header-user > strong {
+	text-decoration: underline;
+	color: var(--sub-font-color);
+  }
+  
+  /**
+   * div 왼쪽 오른쪽 적용
+   */
+  
+  .content {
 	width: 100%;
-	height: 300px;
-	margin: 15px 25px 15px 0px; 
-	padding: 15px;
-	border: 1.5px solid #4b315c;
-	
-}
-div.left {
-	width: 50%;
-	float: left;
-}
-div.right {
-	width: 50%;
-	float: right;
-}
-
-div.basic {
+	margin-top: 16px;
+	border: 1.5px solid var(--main-border-color);
+	box-shadow: var(--main-box-shadow);
+	border-radius: 8px;
+	background-color: var(--color-white);
+  }
+  
+  .content > span {
+	display: block;
+	width: 100%;
+	height: 1px;
+	background-color: var(--main-border-color);
+  }
+  .content-select,
+  .content-select-Indicators {
+	padding: 14px 20px;
+	display: flex;
+	align-items: center;
+  }
+  .content-select {
+	gap: 100px;
+  }
+  
+  .content-select-Indicators {
+	gap: 10px;
+  }
+  .content-select > div {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+  }
+  
+  .content-select > div > p,
+  .content-select-Indicators > p {
+	font-size: 15px;
+	margin: 0;
+  }
+  
+  .icon {
+	color: var(--main-accent-color);
+	padding-right: 6px;
+	line-height: 15px;
+  }
+  div.basic {
 	width: 100%;
 	/*height: 1000px;*/
-	margin: 15px 25px 15px 0px; 
 	padding: 15px;
-	border: 1.5px solid #4b315c;
-}
-/**
- * 버튼 공통
- */
-button.btn {
+  }
+  /**
+   * 버튼 공통
+   */
+  
+  .btn-content {
+	margin: 0 20px 14px;
+	text-align: end;
+  }
+  
+  .btn-submit,
+  .btn-reset {
+	font-size: 14px;
 	border: none;
-	border-radius: 2px;
-}
-
-/**
- * primary 버튼
- */
-button.btn.btn-primary {
-	background-color: #002b49;
-	color: #ffffff;
-}
-
-button.btn.btn-primary:hover {
-	background-color: #004270;
-}
-
-/**
- * 설정 취소 버튼
- */
-button.btn.btn-warning {
-	background-color: #ffffff;
-	border: 1px solid #002b49;
-	color: #002b49;
-}
-
-button.btn.btn-warning:hover {
+	border-radius: 4px;
+	padding: 8px 16px;
+  }
+  
+  .btn-submit:hover,
+  .btn-reset:hover {
+	filter: brightness(90%);
+  }
+  
+  /**
+   * primary 버튼
+   */
+  
+  .btn-submit {
+	background-color: var(--main-accent-color);
+	color: var(--sub-font-color);
+	margin-right: 8px;
+  }
+  /**
+   * 설정 취소 버튼
+   */
+  .btn-reset {
+	background-color: var(--main-border-color);
+  }
+  
+  .result {
+	height: calc(100vh - 416px);
+	overflow-y: auto;
+  }
+  
+  /*스크롤바 */
+  .result::-webkit-scrollbar {
+	width: 10px; /* 스크롤바의 너비 */
+  }
+  
+  .result::-webkit-scrollbar-thumb {
+	height: 30%; /* 스크롤바의 길이 */
+	background: #c1c1c1; /* 스크롤바의 색상 */
+  
+	border-radius: 10px;
+  }
+  
+  /**
+   * 테이블
+   */
+  tr:hover {
 	background-color: #ebf4ff;
-}
-
-/**
- * 테이블
- */
-tr:hover {
-	background-color: #ebf4ff;
-}
-
+  }
+  
+  
